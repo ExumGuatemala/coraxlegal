@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-90N86C4H5F"></script>
@@ -12,9 +12,45 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corax Legal - Bufete de Abogados</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Corax Legal - Bufete de Abogados en Quetzaltenango | Servicios Legales</title>
+    <meta name="description" content="Expertos en Derecho Notarial y Mandatos en el extranjero en Quetzaltenango. Ofrecemos servicios legales profesionales en derecho constitucional, penal, laboral y más.">
+    <meta name="keywords" content="abogados, bufete legal, derecho notarial, mandatos extranjero, Quetzaltenango, Guatemala, servicios legales">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coraxlegal.com/">
+    <meta property="og:title" content="Corax Legal - Bufete de Abogados en Quetzaltenango">
+    <meta property="og:description" content="Expertos en Derecho Notarial y Mandatos en el extranjero en Quetzaltenango. Servicios legales profesionales.">
+    <meta property="og:image" content="src/images/logo_transparente.png">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://coraxlegal.com/">
+    <meta property="twitter:title" content="Corax Legal - Bufete de Abogados en Quetzaltenango">
+    <meta property="twitter:description" content="Expertos en Derecho Notarial y Mandatos en el extranjero en Quetzaltenango. Servicios legales profesionales.">
+    <meta property="twitter:image" content="src/images/logo_transparente.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/images/favicon.png">
+    <link rel="apple-touch-icon" href="src/images/apple-touch-icon.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://coraxlegal.com/">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="src/images/logo_transparente.png" as="image">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" as="style">
+    
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Existing script and style imports with optimizations -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -58,133 +94,143 @@
             opacity: 1;
             transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
         }
+
+        /* Add loading="lazy" to images that are below the fold */
+        img.lazy-load {
+            loading: lazy;
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">Corax Legal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
-                        
-                    </ul>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-custom-dark fixed-top" aria-label="Main navigation">
+                <div class="container">
+                    <a class="navbar-brand" href="#" aria-label="Corax Legal Home">Corax Legal</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                            
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <!-- Hero Section -->
-        <section id="inicio" class="hero-section d-flex align-items-center bg-light-custom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-content text-center">
-                            <img src="src/images/logo_transparente.png" alt="Corax Legal" class="mb-3" style="max-width: 200px; height: auto;">
-                            <p class="lead">{{ heroSubtitle }}</p>
-                            <a href="https://wa.me/50254126434" target="_blank" class="btn btn-custom-orange btn-lg">Quiero Asesorarme</a>
+        <main>
+            <section id="inicio" class="hero-section d-flex align-items-center bg-light-custom" aria-labelledby="hero-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="hero-content text-center">
+                                <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal - Bufete de Abogados en Quetzaltenango" class="mb-3" style="max-width: 200px; height: auto;" fetchpriority="high">
+                                <h1 id="hero-title" class="visually-hidden">{{ heroTitle }}</h1>
+                                <p class="lead">{{ heroSubtitle }}</p>
+                                <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="btn btn-custom-orange btn-lg" aria-label="Contactar por WhatsApp">Quiero Asesorarme</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Servicios -->
-        <section id="servicios" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-5">Nuestros Servicios</h2>
-                <div class="row">
-                    <div v-for="service in services" :key="service.id" class="col-md-4 mb-4">
-                        <div class="card service-card h-100">
-                            <img :src="service.image" class="card-img-top" alt="Servicio Legal" style="height: 200px; object-fit: cover;">
-                            <div class="card-body text-center">
-                                <i :class="service.icon + ' fa-3x mb-3'"></i>
-                                <h5 class="card-title">{{ service.title }}</h5>
-                                <p class="card-text">{{ service.description }}</p>
-                                <div v-if="service.long_description" class="mt-3">
-                                    <button @click="toggleService(service.id)" 
-                                            class="btn btn-sm btn-outline-primary">
-                                        {{ expandedServices.has(service.id) ? 'Ver menos' : 'Ver más' }}
-                                    </button>
-                                    <div class="service-details" 
-                                         :class="{ 'expanded': expandedServices.has(service.id) }">
-                                        <p class="mt-3">{{ service.long_description }}</p>
+            <!-- Servicios -->
+            <section id="servicios" class="py-5" aria-labelledby="servicios-title">
+                <div class="container">
+                    <h2 id="servicios-title" class="text-center mb-5">Nuestros Servicios</h2>
+                    <div class="row">
+                        <div v-for="service in services" :key="service.id" class="col-md-4 mb-4">
+                            <article class="card service-card h-100">
+                                <img :src="service.image" :alt="'Servicio de ' + service.title" class="card-img-top lazy-load" style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center">
+                                    <i :class="service.icon + ' fa-3x mb-3'"></i>
+                                    <h5 class="card-title">{{ service.title }}</h5>
+                                    <p class="card-text">{{ service.description }}</p>
+                                    <div v-if="service.long_description" class="mt-3">
+                                        <button @click="toggleService(service.id)" 
+                                                class="btn btn-sm btn-outline-primary">
+                                            {{ expandedServices.has(service.id) ? 'Ver menos' : 'Ver más' }}
+                                        </button>
+                                        <div class="service-details" 
+                                             :class="{ 'expanded': expandedServices.has(service.id) }">
+                                            <p class="mt-3">{{ service.long_description }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Equipo -->
-        <section id="equipo" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-5">Nuestro Equipo</h2>
-                <div class="row">
-                    <div v-for="member in team" :key="member.id" class="col-md-4 mb-4">
-                        <div class="card h-100 text-center">
-                            <img :src="member.image" class="card-img-top rounded-circle mx-auto mt-4" alt="Team Member" style="width: 200px; height: 200px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ member.name }}</h5>
-                                <p class="text-muted">{{ member.position }}</p>
-                                <p class="card-text">{{ member.description }}</p>
-                            </div>
+            <!-- Equipo -->
+            <section id="equipo" class="py-5" aria-labelledby="equipo-title">
+                <div class="container">
+                    <h2 id="equipo-title" class="text-center mb-5">Nuestro Equipo</h2>
+                    <div class="row">
+                        <div v-for="member in team" :key="member.id" class="col-md-4 mb-4">
+                            <article class="card h-100 text-center">
+                                <img :src="member.image" :alt="member.name + ' - ' + member.position" class="card-img-top rounded-circle mx-auto mt-4 lazy-load" style="width: 200px; height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ member.name }}</h5>
+                                    <p class="text-muted">{{ member.position }}</p>
+                                    <p class="card-text">{{ member.description }}</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Testimonios -->
-        <section id="testimonios" class="py-5 bg-light-custom">
-            <div class="container">
-                <h2 class="text-center mb-5">Reviews</h2>
-                <div class="row">
-                    <div v-for="testimonial in testimonials" :key="testimonial.id" class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <i class="fas fa-quote-left fa-2x text-muted mb-3"></i>
-                                <p class="card-text">{{ testimonial.text }}</p>
-                                <footer class="mt-3">
-                                    <strong class="d-block">{{ testimonial.author }}</strong>
-                                    <small class="text-muted">{{ testimonial.position }}</small>
-                                </footer>
-                            </div>
+            <!-- Testimonios -->
+            <section id="testimonios" class="py-5 bg-light-custom" aria-labelledby="testimonios-title">
+                <div class="container">
+                    <h2 id="testimonios-title" class="text-center mb-5">Reviews</h2>
+                    <div class="row">
+                        <div v-for="testimonial in testimonials" :key="testimonial.id" class="col-md-4 mb-4">
+                            <article class="card h-100">
+                                <div class="card-body">
+                                    <i class="fas fa-quote-left fa-2x text-muted mb-3"></i>
+                                    <p class="card-text">{{ testimonial.text }}</p>
+                                    <footer class="mt-3">
+                                        <strong class="d-block">{{ testimonial.author }}</strong>
+                                        <small class="text-muted">{{ testimonial.position }}</small>
+                                    </footer>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Información de Contacto -->
-        <section id="info-contacto" class="py-5 bg-light-custom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="mb-4">Información de contacto</h2>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><i class="fas fa-map-marker-alt"></i> {{ contactInfo.address }}</li>
-                            <li class="mb-3">
-                                <a href="https://wa.me/50254126434" target="_blank" class="text-dark text-decoration-none">
-                                    <i class="fab fa-whatsapp"></i> {{ contactInfo.phone }}
-                                </a>
-                            </li>
-                        </ul>
-                        <h3 class="h5 mt-4">Horario de atención</h3>
-                        <p>{{ contactInfo.schedule }}</p>
+            <!-- Información de Contacto -->
+            <section id="info-contacto" class="py-5 bg-light-custom" aria-labelledby="contacto-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 id="contacto-title" class="mb-4">Información de contacto</h2>
+                            <address class="list-unstyled">
+                                <div class="mb-3"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ contactInfo.address }}</div>
+                                <div class="mb-3">
+                                    <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="text-dark text-decoration-none">
+                                        <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ contactInfo.phone }}
+                                    </a>
+                                </div>
+                            </address>
+                            <h3 class="h5 mt-4">Horario de atención</h3>
+                            <p>{{ contactInfo.schedule }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="bg-custom-dark text-white py-4">
@@ -207,7 +253,7 @@
                     { 
                         id: 1, 
                         title: 'Derecho Notarial', 
-                        description: 'Asesoría y legalización de documentos notariales, mandatos y contratos, siendo nuestras especialización los mandatos provenientes del extranjero. Garantizamos la validez y seguridad jurídica de sus documentos.',
+                        description: 'Asesoría y legalización de documentos notariales, mandatos y contratos, siendo nuestra especialización los mandatos provenientes del extranjero. Garantizamos la validez y seguridad jurídica de sus documentos.',
                         long_description: '',
                         icon: 'fas fa-file-signature',
                         image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
@@ -247,7 +293,7 @@
                     { 
                         id: 6, 
                         title: 'Derecho de Familia', 
-                        description: 'Asesoria y procuración en asuntos de familia. Nuestro equipo se enfoca en proteger sus derechos y los de su familia en estos procesos.',
+                        description: 'Asesoría y procuración en asuntos de familia. Nuestro equipo se enfoca en proteger sus derechos y los de su familia en estos procesos.',
                         long_description: '', 
                         icon: 'fas fa-users',
                         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
