@@ -94,11 +94,6 @@
             opacity: 1;
             transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
         }
-
-        /* Add loading="lazy" to images that are below the fold */
-        img.lazy-load {
-            loading: lazy;
-        }
     </style>
 </head>
 <body>
@@ -148,7 +143,7 @@
                     <div class="row">
                         <div v-for="service in services" :key="service.id" class="col-md-4 mb-4">
                             <article class="card service-card h-100">
-                                <img :src="service.image" :alt="'Servicio de ' + service.title" class="card-img-top lazy-load" style="height: 200px; object-fit: cover;">
+                                <img :src="service.image" :alt="'Servicio de ' + service.title" class="card-img-top" loading="lazy" style="height: 200px; object-fit: cover;">
                                 <div class="card-body text-center">
                                     <i :class="service.icon + ' fa-3x mb-3'"></i>
                                     <h5 class="card-title">{{ service.title }}</h5>
@@ -177,7 +172,7 @@
                     <div class="row">
                         <div v-for="member in team" :key="member.id" class="col-md-4 mb-4">
                             <article class="card h-100 text-center">
-                                <img :src="member.image" :alt="member.name + ' - ' + member.position" class="card-img-top rounded-circle mx-auto mt-4 lazy-load" style="width: 200px; height: 200px; object-fit: cover;">
+                                <img :src="member.image" :alt="member.name + ' - ' + member.position" class="card-img-top rounded-circle mx-auto mt-4" loading="lazy" style="width: 200px; height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ member.name }}</h5>
                                     <p class="text-muted">{{ member.position }}</p>
