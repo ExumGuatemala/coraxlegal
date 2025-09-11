@@ -211,14 +211,28 @@
                     <div class="row">
                         <div class="col-12">
                             <h2 id="contacto-title" class="mb-4">Información de contacto</h2>
-                            <address class="list-unstyled">
-                                <div class="mb-3"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ contactInfo.address }}</div>
-                                <div class="mb-3">
-                                    <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="text-dark text-decoration-none">
-                                        <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ contactInfo.phone }}
+                            <div class="mb-3">
+                                <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="text-dark text-decoration-none">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i> {{ contactInfo.phone }}
+                                </a>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ contactInfo.address }}
+                                <div class="mt-2">
+                                    <a href="https://waze.com/ul?ll=14.850270170730242,-91.5248619486852&navigate=yes" 
+                                    class="btn btn-sm btn-outline-primary me-2" 
+                                    target="_blank" 
+                                    rel="noopener">
+                                        <i class="fab fa-waze"></i> Abrir en Waze
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=14.850270170730242,-91.5248619486852" 
+                                    class="btn btn-sm btn-outline-success" 
+                                    target="_blank" 
+                                    rel="noopener">
+                                        <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
                                     </a>
                                 </div>
-                            </address>
+                            </div>
                             <h3 class="h5 mt-4">Horario de atención</h3>
                             <p>{{ contactInfo.schedule }}</p>
                         </div>
@@ -360,7 +374,7 @@
             ])
 
                 const contactInfo = ref({
-                    address: 'Quetzaltenango, Guatemala',
+                    address: '10 calle 21-43, zona 3, Quetzaltenango, Guatemala',
                     phone: '+502 5412 6434',
                     email: 'contacto@coraxlegal.com',
                     schedule: 'Lunes a Viernes: 08:00 AM - 03:30 PM'
