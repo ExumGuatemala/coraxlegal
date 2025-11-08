@@ -56,31 +56,69 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <style>
+
         .hero-section {
+            /* include nav height as top padding so the image's important area isn't hidden */
+            padding-top: var(--nav-height);
             height: 500px;
+            /* Background group photo centered and covering the hero. Shift focal point down so faces aren't under navbar */
+            background-image: url('src/images/team/corax_grupal_2025.jpeg');
+            background-size: cover;
+            background-position: center; /* move focal point downward */
+            background-repeat: no-repeat;
+            position: relative;
+            color: #fff;
+            display: flex;
+            align-items: end; /* ensure content sits lower */
+        }
+
+        /* subtle dark overlay so text/button stay readable on the photo */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.45));
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative; /* above overlay */
+            z-index: 1;
+            margin-bottom: 10px; /* lower the logo/button further away from the group's center */
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         .btn-custom-orange {
-            background-color: #ffa400;
-            border-color: #ffa400;
+            background-color: #A53F2B;
+            border-color: #A53F2B;
             color: white;
         }
         .btn-custom-orange:hover {
-            background-color: #e69400;
-            border-color: #e69400;
+            background-color: #A53F2B;
+            border-color: #A53F2B;
             color: white;
         }
         .service-card {
             transition: transform 0.3s;
         }
+        /* Desktop media queries - moved to top level */
+        @media (min-width: 992px) {
+            .hero-section {
+                height: 750px;
+            }
+            .hero-content img[src="src/images/logo_transparente.png"] {
+                max-width: 200px !important;
+            }
+        }
         .service-card:hover {
             transform: translateY(-10px);
         }
         .bg-light-custom {
-            background-color: rgba(38, 12, 26, 0.05);
+            background-color: rgba(230,95,92, 0.05);
         }
         .bg-custom-dark {
-            background-color: #260c1a;
+            background-color: #280004;
         }
         .service-details {
             max-height: 0;
@@ -121,12 +159,12 @@
 
         <!-- Hero Section -->
         <main>
-            <section id="inicio" class="hero-section d-flex align-items-center bg-light-custom" aria-labelledby="hero-title">
+            <section id="inicio" class="hero-section d-flex align-items-end" aria-labelledby="hero-title">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-content text-center">
-                                <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal - Bufete de Abogados en Quetzaltenango" class="mb-3" style="max-width: 200px; height: auto;" fetchpriority="high">
+                                <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal - Bufete de Abogados en Quetzaltenango" class="mb-3" style="max-width: 100px; height: auto;" fetchpriority="high">
                                 <h1 id="hero-title" class="visually-hidden">{{ heroTitle }}</h1>
                                 <p class="lead">{{ heroSubtitle }}</p>
                                 <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="btn btn-custom-orange btn-lg" aria-label="Contactar por WhatsApp">Quiero Asesorarme</a>
@@ -172,7 +210,7 @@
                     <div class="row">
                         <div v-for="member in team" :key="member.id" class="col-md-4 mb-4">
                             <article class="card h-100 text-center">
-                                <img :src="member.image" :alt="member.name + ' - ' + member.position" class="card-img-top rounded-circle mx-auto mt-4" loading="lazy" style="width: 200px; height: 200px; object-fit: cover;">
+                                <img :src="member.image" :alt="member.name + ' - ' + member.position" class="card-img-top mx-auto mt-4" loading="lazy" style="width: 250px; height: 400px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ member.name }}</h5>
                                     <p class="text-muted">{{ member.position }}</p>
@@ -348,28 +386,28 @@
                     name: 'Grecia Ixchajchal Gómez',
                     position: 'Fundadora / Abogada y Notaria Senior',
                     description: 'Magister en Derecho Procesal Constitucional, Licenciada en Ciencias Jurídicas, Abogada y Notaria. Experta en Derecho Notarial y Mandatos en el extranjero con más de 5 años de experiencia.',
-                    image: 'src/images/team/grecia-ixchajchal-equipo1.png'
+                    image: 'src/images/team/grecia_ixchajchal_2025_1.png'
                 },
                 {
                     id: 2,
                     name: 'Victor Gómez Gamboa',
                     position: 'Abogado y Notario Senior',
                     description: 'Magister en Derecho Penal, Licenciado en Ciencias Jurídicas y Sociales, Abogado y Notario. Experto en Derecho Penal y procesos de mediación legal.',
-                    image: 'src/images/team/victor-gomez-equipo.png'
+                    image: 'src/images/team/victor_gomez_2025_1.jpeg'
                 },
                 {
                     id: 3,
                     name: 'Sandra Patricia Chávez',
                     position: 'Abogada y Notaria',
                     description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho Notarial, redacción de documentos y procesos administrativos y legales.',
-                    image: 'src/images/team/sandra-chavez-equipo.png'
+                    image: 'src/images/team/paty_chavez_2025_1.jpeg'
                 },
                 {
                     id: 4,
                     name: 'Adriana Zárate Portillo',
                     position: 'Abogada y Notaria Junior',
                     description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho de Familia.',
-                    image: 'src/images/team/adriana-zarate-equipo.png'
+                    image: 'src/images/team/adriana_zarate_2025.jpeg'
                 },
             ])
 
