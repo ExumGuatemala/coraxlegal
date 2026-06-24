@@ -60,33 +60,58 @@
         .hero-section {
             /* include nav height as top padding so the image's important area isn't hidden */
             padding-top: var(--nav-height);
-            height: 500px;
-            /* Background group photo centered and covering the hero. Shift focal point down so faces aren't under navbar */
-            background-image: url('src/images/team/corax_grupal_2025.jpeg');
-            background-size: cover;
-            background-position: center; /* move focal point downward */
-            background-repeat: no-repeat;
+            height: 750px;
             position: relative;
             color: #fff;
             display: flex;
-            align-items: end; /* ensure content sits lower */
+            align-items: flex-end; /* position content at bottom */
+            justify-content: center; /* center content horizontally */
+        }
+
+        .carousel-item {
+            height: 700px;
+            position: relative;
+        }
+
+        .carousel-item img {
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            width: 100%;
         }
 
         /* subtle dark overlay so text/button stay readable on the photo */
-        .hero-section::before {
+        .carousel-item::after {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.45));
-            z-index: 0;
+            z-index: 1;
+        }
+
+        /* Allow clicks to pass through overlay and keep controls above it */
+        .carousel-item::after {
+            pointer-events: none;
+        }
+
+        #heroCarousel .carousel-control-prev,
+        #heroCarousel .carousel-control-next {
+            z-index: 4;
         }
 
         .hero-content {
             position: relative; /* above overlay */
-            z-index: 1;
-            margin-bottom: 25px; /* lower the logo/button further away from the group's center */
+            z-index: 3;
+            margin-bottom: 200px; /* position button below middle */
             color: #fff;
             text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .hero-content img {
+            max-width: 120px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn-custom-orange {
@@ -105,10 +130,13 @@
         /* Desktop media queries - moved to top level */
         @media (min-width: 992px) {
             .hero-section {
+                height: 800px;
+            }
+            .carousel-item {
                 height: 750px;
             }
             .hero-content img[src="src/images/logo_transparente.png"] {
-                max-width: 200px !important;
+                max-width: 120px !important;
             }
         }
         .service-card:hover {
@@ -157,13 +185,34 @@
         <!-- Hero Section -->
         <main>
             <section id="inicio" class="hero-section d-flex align-items-end" aria-labelledby="hero-title">
-                <div class="container">
+                <div id="heroCarousel" class="carousel slide w-100 position-absolute top-0 start-0 h-100" data-bs-ride="carousel" style="z-index: 0;">
+                    <div class="carousel-indicators">
+                        <button v-for="(img, i) in heroImages" :key="img.id" type="button" data-bs-target="#heroCarousel" :data-bs-slide-to="i" :class="{ 'active': i === 0 }" :aria-current="i === 0 ? 'true' : null" :aria-label="`Slide ${i + 1}`"></button>
+                    </div>
+                    <div class="carousel-inner h-100">
+                        <div v-for="(img, i) in heroImages" :key="img.id" :class="['carousel-item', { 'active': i === 0 }]">
+                            <picture>
+                                <source :srcset="img.desktop" media="(min-width: 992px)">
+                                <source :srcset="img.mobile" media="(max-width: 991px)">
+                                <img :src="img.desktop" :alt="img.alt" class="d-block w-100">
+                            </picture>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="container position-relative" style="z-index: 2;">
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-content text-center">
-                                <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal - Bufete de Abogados en Quetzaltenango" class="mb-3" style="max-width: 100px; height: auto;" fetchpriority="high">
                                 <h1 id="hero-title" class="visually-hidden">{{ heroTitle }}</h1>
-                                <p class="lead">{{ heroSubtitle }}</p>
+                                <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal" class="mb-3" style="max-width: 140px; height: auto; display: block; margin-left: auto; margin-right: auto;">
                                 <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="btn btn-custom-orange btn-lg" aria-label="Contactar por WhatsApp">Quiero Asesorarme</a>
                             </div>
                         </div>
@@ -278,6 +327,12 @@
         <!-- Footer -->
         <footer class="bg-custom-dark text-white py-4">
             <div class="container text-center">
+                <div class="mb-2">
+                    <a href="https://instagram.com/coraxlegal" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
+                        <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
+                        <span class="visually-hidden">Instagram</span>
+                    </a>
+                </div>
                 <p>&copy; {{ currentYear }} Corax Legal. Todos los derechos reservados.</p>
             </div>
         </footer>
@@ -290,6 +345,26 @@
             setup() {
                 const heroTitle = ref('Corax Legal')
                 const heroSubtitle = ref('Expertos en Derecho Notarial y Mandatos en el extranjero')
+                const heroImages = ref([
+                    {
+                        id: 1,
+                        desktop: 'src/images/team/carousel1.jpeg',
+                        mobile: 'src/images/team/carousel1.jpeg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 2,
+                        desktop: 'src/images/team/carousel2.jpg',
+                        mobile: 'src/images/team/carousel2.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 3,
+                        desktop: 'src/images/team/carousel3.jpg',
+                        mobile: 'src/images/team/carousel3.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    }
+                ])
                 const currentYear = ref(new Date().getFullYear())
 
                 const services = ref([
@@ -440,6 +515,7 @@
                 return {
                     heroTitle,
                     heroSubtitle,
+                    heroImages,
                     services,
                     testimonials,
                     contactInfo,
