@@ -102,7 +102,7 @@
         .hero-content {
             position: relative; /* above overlay */
             z-index: 3;
-            margin-bottom: 200px; /* position button below middle */
+            margin-bottom: 125px; /* position button below middle */
             color: #fff;
             text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
@@ -187,10 +187,10 @@
             <section id="inicio" class="hero-section d-flex align-items-end" aria-labelledby="hero-title">
                 <div id="heroCarousel" class="carousel slide w-100 position-absolute top-0 start-0 h-100" data-bs-ride="carousel" style="z-index: 0;">
                     <div class="carousel-indicators">
-                        <button v-for="(img, i) in heroImages" :key="img.id" type="button" data-bs-target="#heroCarousel" :data-bs-slide-to="i" :class="{ 'active': i === 0 }" :aria-current="i === 0 ? 'true' : null" :aria-label="`Slide ${i + 1}`"></button>
+                        <button v-for="(img, i) in visibleHeroImages" :key="img.id" type="button" data-bs-target="#heroCarousel" :data-bs-slide-to="i" :class="{ 'active': i === 0 }" :aria-current="i === 0 ? 'true' : null" :aria-label="`Slide ${i + 1}`"></button>
                     </div>
                     <div class="carousel-inner h-100">
-                        <div v-for="(img, i) in heroImages" :key="img.id" :class="['carousel-item', { 'active': i === 0 }]">
+                        <div v-for="(img, i) in visibleHeroImages" :key="img.id" :class="['carousel-item', { 'active': i === 0 }]">
                             <picture>
                                 <source :srcset="img.desktop" media="(min-width: 992px)">
                                 <source :srcset="img.mobile" media="(max-width: 991px)">
@@ -339,7 +339,7 @@
     </div>
 
     <script>
-        const { createApp, ref } = Vue
+        const { createApp, ref, computed, onMounted, onBeforeUnmount } = Vue
 
         const app = createApp({
             setup() {
@@ -348,23 +348,67 @@
                 const heroImages = ref([
                     {
                         id: 1,
+                        desktop: 'src/images/team/carousel4.jpg',
+                        mobile: 'src/images/team/carousel4.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 2,
+                        desktop: '',
+                        mobile: 'src/images/team/carousel6.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 3,
                         desktop: 'src/images/team/carousel1.jpeg',
                         mobile: 'src/images/team/carousel1.jpeg',
                         alt: 'Corax Legal - Equipo'
                     },
                     {
-                        id: 2,
+                        id: 4,
+                        desktop: '',
+                        mobile: 'src/images/team/carousel5.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 5,
                         desktop: 'src/images/team/carousel2.jpg',
                         mobile: 'src/images/team/carousel2.jpg',
                         alt: 'Corax Legal - Equipo'
                     },
                     {
-                        id: 3,
+                        id: 6,
+                        desktop: '',
+                        mobile: 'src/images/team/carousel7.jpg',
+                        alt: 'Corax Legal - Equipo'
+                    },
+                    {
+                        id: 7,
                         desktop: 'src/images/team/carousel3.jpg',
                         mobile: 'src/images/team/carousel3.jpg',
                         alt: 'Corax Legal - Equipo'
                     }
                 ])
+                const isDesktop = ref(window.innerWidth >= 992)
+
+                const handleResize = () => {
+                    isDesktop.value = window.innerWidth >= 992
+                }
+
+                onMounted(() => {
+                    window.addEventListener('resize', handleResize)
+                })
+
+                onBeforeUnmount(() => {
+                    window.removeEventListener('resize', handleResize)
+                })
+
+                const visibleHeroImages = computed(() => {
+                    return isDesktop.value
+                        ? heroImages.value.filter(img => img.desktop && img.desktop.trim() !== '')
+                        : heroImages.value
+                })
+
                 const currentYear = ref(new Date().getFullYear())
 
                 const services = ref([
@@ -457,7 +501,7 @@
                     name: 'Grecia Ixchajchal Gómez',
                     position: 'Fundadora / Abogada y Notaria Senior',
                     description: 'Magister en Derecho Procesal Constitucional, Licenciada en Ciencias Jurídicas, Abogada y Notaria. Experta en Derecho Notarial y Mandatos en el extranjero con más de 5 años de experiencia.',
-                    image: 'src/images/team/grecia_ixchajchal_2025_1-1.png'
+                    image: 'src/images/team/grecia_ixchajchal_2026_1.jpg'
                 },
                 {
                     id: 2,
@@ -471,14 +515,21 @@
                     name: 'Sandra Patricia Chávez',
                     position: 'Abogada y Notaria',
                     description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho Notarial, redacción de documentos y procesos administrativos y legales.',
-                    image: 'src/images/team/paty_chavez_2025_1.jpeg'
+                    image: 'src/images/team/paty_chavez_2026_1.jpg'
                 },
                 {
                     id: 4,
                     name: 'Adriana Zárate Portillo',
-                    position: 'Abogada y Notaria Junior',
+                    position: 'Abogada y Notaria',
                     description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho de Familia.',
-                    image: 'src/images/team/adriana_zarate_2025.jpeg'
+                    image: 'src/images/team/adriana_zarate_2026_1.jpg'
+                },
+                {
+                    id: 5,
+                    name: 'Laury Marleny Yamileth Ajxup Hernández',
+                    position: 'Abogada y Notaria Junior',
+                    description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria.',
+                    image: 'src/images/team/yamileth_ajxup_2026_1.jpg'
                 },
             ])
 
@@ -516,6 +567,7 @@
                     heroTitle,
                     heroSubtitle,
                     heroImages,
+                    visibleHeroImages,
                     services,
                     testimonials,
                     contactInfo,
