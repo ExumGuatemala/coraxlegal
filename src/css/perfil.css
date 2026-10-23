@@ -1,0 +1,209 @@
+/* Estilos compartidos de las páginas de perfil del equipo.
+   Mobile first: los estilos base son para teléfono; las pantallas
+   más grandes se ajustan con media queries min-width. */
+
+:root {
+    --corax-dark: #280004;
+    --corax-accent: #A53F2B;
+    --nav-height: 56px;
+}
+
+body {
+    padding-top: var(--nav-height);
+}
+
+.bg-custom-dark {
+    background-color: var(--corax-dark);
+}
+
+/* Enlace de regreso al inicio */
+.perfil-volver {
+    display: inline-block;
+    color: var(--corax-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.perfil-volver:hover {
+    text-decoration: underline;
+}
+
+/* Encabezado: foto arriba, texto abajo en móvil */
+.perfil-header {
+    text-align: center;
+}
+
+.perfil-foto {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(40, 0, 4, 0.15);
+}
+
+.perfil-nombre {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.perfil-cargo {
+    color: var(--corax-accent);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Secciones */
+.perfil-seccion {
+    padding-block: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.perfil-seccion h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-bottom: 1rem;
+}
+
+.perfil-seccion h2 i {
+    color: var(--corax-accent);
+    margin-right: 0.5rem;
+}
+
+/* Frase destacada dentro de una sección */
+.perfil-destacado {
+    border-left: 3px solid var(--corax-accent);
+    background-color: #f8f1f0;
+    color: var(--corax-dark);
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Ramas del derecho con descripción */
+.perfil-ramas {
+    padding-left: 1.1rem;
+}
+
+.perfil-ramas li {
+    margin-bottom: 0.6rem;
+}
+
+.perfil-ramas li::marker {
+    color: var(--corax-accent);
+}
+
+/* Grupos desplegables de diplomas */
+.perfil-grupo {
+    margin-top: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 0.5rem;
+}
+
+.perfil-grupo summary {
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    color: var(--corax-dark);
+}
+
+.perfil-grupo summary::marker {
+    color: var(--corax-accent);
+}
+
+.perfil-grupo-total {
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.perfil-diplomas {
+    padding: 0 1rem 1rem 2rem;
+    margin-bottom: 0;
+}
+
+.perfil-diplomas li {
+    margin-bottom: 0.75rem;
+}
+
+.perfil-diplomas li::marker {
+    color: var(--corax-accent);
+}
+
+.perfil-diplomas .detalle {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Línea de tiempo de estudios */
+.perfil-timeline {
+    list-style: none;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--corax-accent);
+    margin-bottom: 0;
+}
+
+.perfil-timeline li {
+    position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.perfil-timeline li:last-child {
+    padding-bottom: 0;
+}
+
+.perfil-timeline li::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.25rem - 6px);
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--corax-accent);
+}
+
+.perfil-timeline .titulo {
+    font-weight: 600;
+    display: block;
+}
+
+.perfil-timeline .detalle {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Tablet en adelante: foto a la izquierda, texto a la derecha */
+@media (min-width: 768px) {
+    .perfil-header {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        text-align: left;
+    }
+
+    .perfil-foto {
+        flex: 0 0 260px;
+        max-width: 260px;
+    }
+
+    .perfil-nombre {
+        font-size: 2.25rem;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .perfil-foto {
+        flex-basis: 300px;
+        max-width: 300px;
+    }
+
+    .perfil-nombre {
+        font-size: 2.75rem;
+    }
+}
