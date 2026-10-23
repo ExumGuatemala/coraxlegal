@@ -20,24 +20,119 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://coraxlegal.com/">
+    <meta property="og:url" content="https://www.coraxlegal.com/">
     <meta property="og:title" content="Corax Legal - Bufete de Abogados en Quetzaltenango">
     <meta property="og:description" content="Expertos en Derecho Notarial y Mandatos en el extranjero en Quetzaltenango. Servicios legales profesionales.">
-    <meta property="og:image" content="src/images/logo_transparente.png">
+    <meta property="og:image" content="https://www.coraxlegal.com/src/images/logo_transparente.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://coraxlegal.com/">
+    <meta property="twitter:url" content="https://www.coraxlegal.com/">
     <meta property="twitter:title" content="Corax Legal - Bufete de Abogados en Quetzaltenango">
     <meta property="twitter:description" content="Expertos en Derecho Notarial y Mandatos en el extranjero en Quetzaltenango. Servicios legales profesionales.">
-    <meta property="twitter:image" content="src/images/logo_transparente.png">
+    <meta property="twitter:image" content="https://www.coraxlegal.com/src/images/logo_transparente.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="src/images/favicon.png">
     <link rel="apple-touch-icon" href="src/images/apple-touch-icon.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://coraxlegal.com/">
+    <link rel="canonical" href="https://www.coraxlegal.com/">
+
+    <!-- Datos estructurados del bufete -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "@id": "https://www.coraxlegal.com/#bufete",
+        "name": "Corax Legal",
+        "description": "Bufete de abogados en Quetzaltenango, expertos en Derecho Notarial y Mandatos en el extranjero. Servicios legales en derecho constitucional, penal, laboral, mercantil y de familia.",
+        "url": "https://www.coraxlegal.com/",
+        "logo": "https://www.coraxlegal.com/src/images/logo_transparente.png",
+        "image": "https://www.coraxlegal.com/src/images/logo_transparente.png",
+        "telephone": "+502 5412 6434",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 calle 21-43, zona 3",
+            "addressLocality": "Quetzaltenango",
+            "addressRegion": "Quetzaltenango",
+            "addressCountry": "GT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 14.850270170730242,
+            "longitude": -91.5248619486852
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=14.850270170730242,-91.5248619486852",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "15:30"
+            }
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "Guatemala"
+        },
+        "knowsAbout": [
+            "Derecho Notarial y Registral",
+            "Mandatos y representación para guatemaltecos en el extranjero",
+            "Derecho Constitucional y Procesal",
+            "Derecho Penal",
+            "Derecho Laboral",
+            "Derecho Mercantil",
+            "Derecho de Familia"
+        ],
+        "sameAs": [
+            "https://instagram.com/coraxlegal"
+        ],
+        "employee": [
+            {
+                "@type": "Person",
+                "name": "Grecia Ixchajchal Gómez",
+                "jobTitle": "Fundadora / Abogada y Notaria Senior",
+                "url": "https://www.coraxlegal.com/equipo/grecia-ixchajchal/"
+            },
+            {
+                "@type": "Person",
+                "name": "Sandra Patricia Chávez Cuyuch",
+                "jobTitle": "Analista Jurídica Senior",
+                "url": "https://www.coraxlegal.com/equipo/sandra-chavez/"
+            },
+            {
+                "@type": "Person",
+                "name": "Victor Gómez Gamboa",
+                "jobTitle": "Abogado y Notario Senior"
+            },
+            {
+                "@type": "Person",
+                "name": "Adriana Zárate Portillo",
+                "jobTitle": "Abogada y Notaria Semi Senior",
+                "url": "https://www.coraxlegal.com/equipo/adriana-zarate/"
+            },
+            {
+                "@type": "Person",
+                "name": "Laury Marleny Yamileth Ajxup Hernández",
+                "jobTitle": "Abogada y Notaria Junior",
+                "url": "https://www.coraxlegal.com/equipo/yamileth-ajxup/"
+            },
+            {
+                "@type": "Person",
+                "name": "María Alejandra Gálvez Tiguilá",
+                "jobTitle": "Asistente Legal",
+                "url": "https://www.coraxlegal.com/equipo/alejandra-galvez/"
+            }
+        ]
+    }
+    </script>
 
     <!-- Preload critical resources -->
     <link rel="preload" href="src/images/logo_transparente.png" as="image">
@@ -174,7 +269,8 @@
                             <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                             <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                            <!-- Oculto hasta tener testimonios reales -->
+                            <!-- <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li> -->
                             
                         </ul>
                     </div>
@@ -260,6 +356,7 @@
                                     <h5 class="card-title">{{ member.name }}</h5>
                                     <p class="text-muted">{{ member.position }}</p>
                                     <p class="card-text">{{ member.description }}</p>
+                                    <a v-if="member.profileUrl" :href="member.profileUrl" class="btn btn-sm btn-custom-orange" :aria-label="'Ver perfil de ' + member.name">Ver perfil</a>
                                 </div>
                             </article>
                         </div>
@@ -267,7 +364,7 @@
                 </div>
             </section>
 
-            <!-- Testimonios -->
+            <!-- Testimonios: oculto hasta tener testimonios reales (los actuales son de ejemplo y Google penaliza reseñas falsas)
             <section id="testimonios" class="py-5" aria-labelledby="testimonios-title">
                 <div class="container">
                     <h2 id="testimonios-title" class="text-center mb-5">Reviews</h2>
@@ -287,6 +384,7 @@
                     </div>
                 </div>
             </section>
+            -->
 
             <!-- Información de Contacto -->
             <section id="info-contacto" class="py-5" aria-labelledby="contacto-title">
@@ -500,36 +598,48 @@
                     id: 1,
                     name: 'Grecia Ixchajchal Gómez',
                     position: 'Fundadora / Abogada y Notaria Senior',
-                    description: 'Magister en Derecho Procesal Constitucional, Licenciada en Ciencias Jurídicas, Abogada y Notaria. Experta en Derecho Notarial y Mandatos en el extranjero con más de 5 años de experiencia.',
-                    image: 'src/images/team/grecia_ixchajchal_2026_1.jpg'
+                    description: 'Fundadora de Corax Legal. Atención personalizada, autorización de escrituras públicas y mandatos desde el extranjero. Supervisa personalmente cada caso y guía a su equipo para que cada cliente obtenga la mejor solución.',
+                    image: 'src/images/team/grecia_ixchajchal_2026_1.jpg',
+                    profileUrl: 'equipo/grecia-ixchajchal/index.html'
                 },
                 {
                     id: 2,
+                    name: 'Sandra Patricia Chávez',
+                    position: 'Analista Jurídica Senior',
+                    description: 'Constitución de sociedades mercantiles, redacción de escrituras públicas y documentos privados, e inscripción de mandatos provenientes del extranjero.',
+                    image: 'src/images/team/paty_chavez_2026_1.jpg',
+                    profileUrl: 'equipo/sandra-chavez/index.html'
+                },
+                {
+                    id: 3,
                     name: 'Victor Gómez Gamboa',
                     position: 'Abogado y Notario Senior',
                     description: 'Magister en Derecho Penal, Licenciado en Ciencias Jurídicas y Sociales, Abogado y Notario. Experto en Derecho Penal y procesos de mediación legal.',
                     image: 'src/images/team/victor_gomez_2025_1.jpeg'
                 },
                 {
-                    id: 3,
-                    name: 'Sandra Patricia Chávez',
-                    position: 'Abogada y Notaria',
-                    description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho Notarial, redacción de documentos y procesos administrativos y legales.',
-                    image: 'src/images/team/paty_chavez_2026_1.jpg'
-                },
-                {
                     id: 4,
                     name: 'Adriana Zárate Portillo',
-                    position: 'Abogada y Notaria',
-                    description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria. Especialista en Derecho de Familia.',
-                    image: 'src/images/team/adriana_zarate_2026_1.jpg'
+                    position: 'Abogada y Notaria Semi Senior',
+                    description: 'Divorcios, medidas de seguridad por violencia intrafamiliar, titulaciones supletorias, cálculo de prestaciones laborales y finiquitos.',
+                    image: 'src/images/team/adriana_zarate_2026_1.jpg',
+                    profileUrl: 'equipo/adriana-zarate/index.html'
                 },
                 {
                     id: 5,
                     name: 'Laury Marleny Yamileth Ajxup Hernández',
                     position: 'Abogada y Notaria Junior',
-                    description: 'Licenciada en Ciencias Jurídicas y Sociales, Abogada y Notaria.',
-                    image: 'src/images/team/yamileth_ajxup_2026_1.jpg'
+                    description: 'Defensa y representación en procesos penales, denuncias y querellas, y procuración ante el Ministerio Público, juzgados e INACIF.',
+                    image: 'src/images/team/yamileth_ajxup_2026_1.jpg',
+                    profileUrl: 'equipo/yamileth-ajxup/index.html'
+                },
+                {
+                    id: 6,
+                    name: 'María Alejandra Gálvez Tiguilá',
+                    position: 'Asistente Legal',
+                    description: 'Gestión de expedientes, control de plazos y audiencias, e investigación legal. Dominio del idioma inglés.',
+                    image: 'src/images/team/alejandra_galvez_provisional.svg',
+                    profileUrl: 'equipo/alejandra-galvez/index.html'
                 },
             ])
 
