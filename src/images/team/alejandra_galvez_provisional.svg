@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" width="1024" height="1536" role="img" aria-label="Alejandra Gálvez">
+    <!-- Imagen provisional mientras llega la fotografía -->
+    <rect width="1024" height="1536" fill="#f8f1f0"/>
+    <circle cx="512" cy="640" r="260" fill="#280004"/>
+    <text x="512" y="640" dy="0.35em" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="200" font-weight="700" fill="#ffffff">AG</text>
+    <rect x="312" y="1020" width="400" height="12" rx="6" fill="#A53F2B"/>
+</svg>
