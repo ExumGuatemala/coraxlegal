@@ -15,6 +15,9 @@ kramdown:
 permalink: /blog/:title/
 
 exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
   - README.md
   - docs
   - team
