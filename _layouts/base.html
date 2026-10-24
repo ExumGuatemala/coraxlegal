@@ -13,32 +13,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {%- assign titulo_redes = page.title | append: " | Corax Legal" -%}
-    {%- if page.imagen -%}
-        {%- assign imagen_redes = page.imagen | absolute_url -%}
+    {%- assign titulo_redes = page.titulo_redes | default: page.title | append: " | Corax Legal" -%}
+    {%- assign descripcion_redes = page.descripcion_redes | default: page.description -%}
+    {%- comment -%} Imagen para redes: la de la página o la foto del perfil; si no hay (o es .svg), el logo {%- endcomment -%}
+    {%- assign imagen_pagina = page.imagen | default: page.foto -%}
+    {%- if imagen_pagina contains ".svg" -%}{%- assign imagen_pagina = nil -%}{%- endif -%}
+    {%- if imagen_pagina -%}
+        {%- assign imagen_redes = imagen_pagina | absolute_url -%}
     {%- else -%}
         {%- assign imagen_redes = "/src/images/logo_transparente.png" | absolute_url -%}
-    {%- endif %}
+    {%- endif -%}
+    {%- case page.collection -%}
+        {%- when "servicios" -%}{%- assign ubicacion = "servicio" -%}
+        {%- when "equipo" -%}{%- assign ubicacion = "perfil" -%}
+        {%- else -%}{%- assign ubicacion = "blog" -%}
+    {%- endcase %}
 
     <!-- SEO Meta Tags -->
     <title>{{ page.titulo_seo | default: titulo_redes }}</title>
     <meta name="description" content="{{ page.description }}">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}">
+    <meta property="og:type" content="{% if page.collection == 'posts' %}article{% elsif page.collection == 'equipo' %}profile{% else %}website{% endif %}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:title" content="{{ titulo_redes }}">
-    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:description" content="{{ descripcion_redes }}">
     <meta property="og:image" content="{{ imagen_redes }}">
     {%- if page.collection == 'posts' %}
     <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    {%- elsif page.collection == 'equipo' %}
+    <meta property="profile:first_name" content="{{ page.nombre_pila }}">
+    <meta property="profile:last_name" content="{{ page.apellidos }}">
     {%- endif %}
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ page.url | absolute_url }}">
     <meta property="twitter:title" content="{{ titulo_redes }}">
-    <meta property="twitter:description" content="{{ page.description }}">
+    <meta property="twitter:description" content="{{ descripcion_redes }}">
     <meta property="twitter:image" content="{{ imagen_redes }}">
 
     <!-- Canonical URL -->
@@ -53,7 +65,7 @@
 
     <!-- Datos estructurados -->
     {%- if page.collection == 'posts' %}
-    {%- assign autor = site.data.equipo[page.autor] %}
+    {%- assign autor = site.equipo | where: "slug", page.autor | first %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -70,7 +82,7 @@
             "@type": "Person",
             "name": {{ autor.nombre | jsonify }},
             "jobTitle": {{ autor.cargo | jsonify }},
-            "url": "{{ autor.perfil | absolute_url }}"
+            "url": "{{ autor.url | absolute_url }}"
         },
         "publisher": {
             "@type": "LegalService",
@@ -100,6 +112,48 @@
             "@id": "https://www.coraxlegal.com/#bufete",
             "name": "Corax Legal",
             "url": "https://www.coraxlegal.com/"
+        }
+    }
+    </script>
+    {%- elsif page.collection == 'equipo' %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ page.nombre | jsonify }},
+        {%- if page.nombre_corto %}
+        "alternateName": {{ page.nombre_corto | jsonify }},
+        {%- endif %}
+        "givenName": {{ page.nombre_pila | jsonify }},
+        "familyName": {{ page.apellidos | jsonify }},
+        "jobTitle": {{ page.cargo | jsonify }},
+        "url": "{{ page.url | absolute_url }}",
+        {%- if imagen_pagina %}
+        "image": "{{ imagen_redes }}",
+        {%- endif %}
+        "knowsAbout": {{ page.conoce | jsonify }},
+        {%- if page.estudio_en %}
+        "alumniOf": [
+            {%- for universidad in page.estudio_en %}
+            {
+                "@type": "CollegeOrUniversity",
+                "name": {{ universidad | jsonify }}
+            }{% unless forloop.last %},{% endunless %}
+            {%- endfor %}
+        ],
+        {%- endif %}
+        "worksFor": {
+            "@type": "LegalService",
+            "@id": "https://www.coraxlegal.com/#bufete",
+            "name": "Corax Legal",
+            "url": "https://www.coraxlegal.com/",
+            "telephone": "+502 5412 6434",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 calle 21-43, zona 3",
+                "addressLocality": "Quetzaltenango",
+                "addressCountry": "GT"
+            }
         }
     }
     </script>
@@ -148,9 +202,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#inicio">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link{% if page.collection == 'servicios' %} active" aria-current="page{% endif %}" href="{{ '/' | relative_url }}#servicios">Servicios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#equipo">Equipo</a></li>
-                        <li class="nav-item"><a class="nav-link{% unless page.collection == 'servicios' %} active" aria-current="page{% endunless %}" href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link{% if ubicacion == 'servicio' %} active" aria-current="page{% endif %}" href="{{ '/' | relative_url }}#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link{% if ubicacion == 'perfil' %} active" aria-current="page{% endif %}" href="{{ '/' | relative_url }}#equipo">Equipo</a></li>
+                        <li class="nav-item"><a class="nav-link{% if ubicacion == 'blog' %} active" aria-current="page{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#info-contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -166,18 +220,18 @@
     <footer class="bg-custom-dark text-white py-4">
         <div class="container text-center">
             <div class="mb-2">
-                <a href="https://instagram.com/coraxlegal" data-evento="clic_instagram" data-ubicacion="{% if page.collection == 'servicios' %}servicio{% else %}blog{% endif %}" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
+                <a href="https://instagram.com/coraxlegal" data-evento="clic_instagram" data-ubicacion="{{ ubicacion }}" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
                     <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                     <span class="visually-hidden">Instagram</span>
                 </a>
             </div>
             <p class="mb-0">&copy; <span id="current-year">2026</span> Corax Legal. Todos los derechos reservados.</p>
-            <p class="small mb-0 mt-2 opacity-75">Sitio creado por <a href="https://exumsoftware.com" data-evento="clic_exum" data-ubicacion="{% if page.collection == 'servicios' %}servicio{% else %}blog{% endif %}" target="_blank" rel="noopener" class="text-white">exumsoftware.com</a></p>
+            <p class="small mb-0 mt-2 opacity-75">Sitio creado por <a href="https://exumsoftware.com" data-evento="clic_exum" data-ubicacion="{{ ubicacion }}" target="_blank" rel="noopener" class="text-white">exumsoftware.com</a></p>
         </div>
     </footer>
 
     <script>
-        // Eventos de Google Analytics para los clics de contacto (WhatsApp, Instagram)
+        // Eventos de Google Analytics para los clics de contacto (WhatsApp, Instagram, Exum)
         document.querySelectorAll('[data-evento]').forEach(enlace => {
             enlace.addEventListener('click', () => {
                 gtag('event', enlace.dataset.evento, { ubicacion: enlace.dataset.ubicacion })

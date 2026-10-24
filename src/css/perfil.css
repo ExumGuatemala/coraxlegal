@@ -106,6 +106,30 @@ body > main {
     color: var(--corax-accent);
 }
 
+/* Servicios y artículos del perfil (enlaces) */
+.perfil-enlaces {
+    padding-left: 1.1rem;
+}
+
+.perfil-enlaces li {
+    margin-bottom: 0.6rem;
+}
+
+.perfil-enlaces li::marker {
+    color: var(--corax-accent);
+}
+
+.perfil-enlaces a {
+    color: var(--corax-dark);
+    font-weight: 600;
+}
+
+.perfil-enlaces-fecha {
+    display: block;
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
 /* Grupos desplegables de diplomas */
 .perfil-grupo {
     margin-top: 1.5rem;

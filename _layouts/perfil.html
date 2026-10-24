@@ -1,0 +1,65 @@
+---
+layout: base
+---
+{%- comment -%}
+    Servicios en los que participa: Grecia aparece en todos (igual que en
+    "Equipo a cargo" de _layouts/servicio.html); el resto, en los servicios
+    donde alguna solución la incluye en su equipo.
+{%- endcomment -%}
+{%- assign integrante = page.slug -%}
+{%- assign servicios = site.servicios | sort: "orden" -%}
+{%- capture servicios_perfil -%}
+{%- for servicio in servicios -%}
+    {%- assign participa = false -%}
+    {%- if integrante == "grecia-ixchajchal" -%}{%- assign participa = true -%}{%- endif -%}
+    {%- for solucion in servicio.soluciones -%}
+        {%- if solucion.equipo contains integrante -%}{%- assign participa = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if participa %}
+            <li><a href="{{ servicio.url | relative_url }}">{{ servicio.title }}</a></li>
+    {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign articulos = site.posts | where: "autor", integrante -%}
+
+<a href="{{ '/' | relative_url }}" class="perfil-volver mb-4"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a>
+
+<article>
+    <!-- Encabezado -->
+    <header class="perfil-header pb-4">
+        <img src="{{ page.foto | relative_url }}" alt="{{ page.foto_alt }}" class="perfil-foto" width="1024" height="1536" fetchpriority="high">
+        <div>
+            <h1 class="perfil-nombre">{{ page.nombre }}</h1>
+            <p class="perfil-cargo">{{ page.cargo }}</p>
+        </div>
+    </header>
+
+    {{ content }}
+
+    {%- if servicios_perfil != "" %}
+
+    <!-- Servicios (salen de _servicios/) -->
+    <section class="perfil-seccion" aria-labelledby="servicios-title">
+        <h2 id="servicios-title"><i class="fas fa-briefcase" aria-hidden="true"></i>Servicios en los que participa</h2>
+        <ul class="perfil-enlaces">
+            {{- servicios_perfil }}
+        </ul>
+    </section>
+    {%- endif %}
+
+    {%- if articulos.size > 0 %}
+
+    <!-- Artículos del blog (salen de _posts/ con autor: <este perfil>) -->
+    <section class="perfil-seccion" aria-labelledby="articulos-title">
+        <h2 id="articulos-title"><i class="fas fa-newspaper" aria-hidden="true"></i>Artículos publicados</h2>
+        <ul class="perfil-enlaces">
+            {%- for post in articulos %}
+            <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <span class="perfil-enlaces-fecha">{% include fecha.html fecha=post.date %}</span>
+            </li>
+            {%- endfor %}
+        </ul>
+    </section>
+    {%- endif %}
+</article>

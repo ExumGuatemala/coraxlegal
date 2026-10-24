@@ -9,36 +9,14 @@ layout: null
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+    {%- for integrante in site.equipo %}
     <url>
-        <loc>https://www.coraxlegal.com/equipo/grecia-ixchajchal/</loc>
-        <lastmod>2026-10-23</lastmod>
+        <loc>{{ integrante.url | absolute_url }}</loc>
+        <lastmod>{{ integrante.actualizado | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://www.coraxlegal.com/equipo/adriana-zarate/</loc>
-        <lastmod>2026-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.coraxlegal.com/equipo/sandra-chavez/</loc>
-        <lastmod>2026-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.coraxlegal.com/equipo/yamileth-ajxup/</loc>
-        <lastmod>2026-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.coraxlegal.com/equipo/alejandra-galvez/</loc>
-        <lastmod>2026-10-23</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
+    {%- endfor %}
     {%- assign servicios = site.servicios | sort: "orden" %}
     {%- for servicio in servicios %}
     <url>

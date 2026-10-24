@@ -1,6 +1,6 @@
 # Configuración de Jekyll (GitHub Pages lo ejecuta automáticamente al publicar).
-# Solo el blog usa Jekyll: la landing y los perfiles no tienen front matter,
-# así que se copian tal cual.
+# El blog, los servicios y los perfiles usan Jekyll. La landing (index.html)
+# no tiene front matter, así que se copia tal cual.
 title: Corax Legal
 description: Trámites legales y notariales en Guatemala, explicados de forma sencilla por el equipo de Corax Legal, bufete en Quetzaltenango.
 author: Corax Legal
@@ -17,11 +17,16 @@ kramdown:
 plugins:
   - jekyll-feed
 
-# Páginas de servicio: un archivo por servicio en _servicios/, publicado en /servicios/<archivo>/
 collections:
+  # Páginas de servicio: un archivo por servicio en _servicios/, publicado en /servicios/<archivo>/
   servicios:
     output: true
     permalink: /servicios/:name/
+  # Perfiles del equipo: un archivo por persona en _equipo/, publicado en /equipo/<archivo>/.
+  # El nombre del archivo es la clave que usan los artículos (autor:) y los servicios (equipo:).
+  equipo:
+    output: true
+    permalink: /equipo/:name/
 
 # Los artículos quedan en /blog/<titulo>/
 permalink: /blog/:title/

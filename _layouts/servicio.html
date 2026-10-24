@@ -44,8 +44,8 @@ layout: base
         <h2 id="equipo-title"><i class="fas fa-users" aria-hidden="true"></i>Equipo a cargo</h2>
         <div class="servicio-equipo">
             {%- for id in equipo %}
-            {%- assign integrante = site.data.equipo[id] %}
-            <a href="{{ integrante.perfil | relative_url }}" class="servicio-integrante">
+            {%- assign integrante = site.equipo | where: "slug", id | first %}
+            <a href="{{ integrante.url | relative_url }}" class="servicio-integrante">
                 <img src="{{ integrante.foto | relative_url }}" alt="{{ integrante.nombre }}" width="72" height="72" loading="lazy">
                 <span>
                     <span class="servicio-integrante-nombre">{{ integrante.nombre }}</span>
