@@ -361,7 +361,7 @@
                         <div class="hero-content text-center">
                             <img src="src/images/logo_transparente.png" alt="Logo de Corax Legal" width="1744" height="1583" class="mb-3" style="max-width: 140px; height: auto; display: block; margin-left: auto; margin-right: auto;">
                             <h1 id="hero-title" class="hero-titulo">Bufete de Abogados y Notarios en Quetzaltenango</h1>
-                            <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="btn btn-custom-orange btn-lg" aria-label="Contactar por WhatsApp">Quiero Asesorarme</a>
+                            <a href="https://wa.me/50254126434" data-evento="clic_whatsapp" data-ubicacion="inicio" target="_blank" rel="noopener" class="btn btn-custom-orange btn-lg" aria-label="Contactar por WhatsApp">Quiero Asesorarme</a>
                         </div>
                     </div>
                 </div>
@@ -551,19 +551,19 @@
                     <div class="col-lg-5">
                         <address class="mb-0">
                             <div class="mb-3">
-                                <a href="https://wa.me/50254126434" target="_blank" rel="noopener" class="text-dark text-decoration-none">
+                                <a href="https://wa.me/50254126434" data-evento="clic_whatsapp" data-ubicacion="contacto" target="_blank" rel="noopener" class="text-dark text-decoration-none">
                                     <i class="fab fa-whatsapp" aria-hidden="true"></i> +502 5412 6434
                                 </a>
                             </div>
                             <div class="mb-3">
-                                <a href="tel:+50254126434" class="text-dark text-decoration-none">
+                                <a href="tel:+50254126434" data-evento="clic_llamar" data-ubicacion="contacto" class="text-dark text-decoration-none">
                                     <i class="fas fa-phone" aria-hidden="true"></i> Llamar al +502 5412 6434
                                 </a>
                             </div>
                             <div class="mb-3">
                                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 10 calle 21-43, zona 3, Quetzaltenango, Guatemala
                                 <div class="mt-2">
-                                    <a href="https://waze.com/ul?ll=14.850270170730242,-91.5248619486852&navigate=yes" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+                                    <a href="https://waze.com/ul?ll=14.850270170730242,-91.5248619486852&navigate=yes" data-evento="clic_waze" data-ubicacion="contacto" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
                                         <i class="fab fa-waze" aria-hidden="true"></i> Abrir en Waze
                                     </a>
                                 </div>
@@ -585,7 +585,7 @@
     <footer class="bg-custom-dark text-white py-4">
         <div class="container text-center">
             <div class="mb-2">
-                <a href="https://instagram.com/coraxlegal" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
+                <a href="https://instagram.com/coraxlegal" data-evento="clic_instagram" data-ubicacion="footer" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
                     <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                     <span class="visually-hidden">Instagram</span>
                 </a>
@@ -612,6 +612,13 @@
                 const expandido = detalle.classList.toggle('expanded')
                 boton.setAttribute('aria-expanded', expandido)
                 boton.textContent = expandido ? 'Ver menos' : 'Ver más'
+            })
+        })
+
+        // Eventos de Google Analytics para los clics de contacto (WhatsApp, llamada, Waze, Instagram)
+        document.querySelectorAll('[data-evento]').forEach(enlace => {
+            enlace.addEventListener('click', () => {
+                gtag('event', enlace.dataset.evento, { ubicacion: enlace.dataset.ubicacion })
             })
         })
 
