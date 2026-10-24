@@ -2,6 +2,8 @@
 # Solo el blog usa Jekyll: la landing y los perfiles no tienen front matter,
 # así que se copian tal cual.
 title: Corax Legal
+description: Trámites legales y notariales en Guatemala, explicados de forma sencilla por el equipo de Corax Legal, bufete en Quetzaltenango.
+author: Corax Legal
 url: https://www.coraxlegal.com
 baseurl: ""
 lang: es
@@ -10,6 +12,10 @@ timezone: America/Guatemala
 markdown: kramdown
 kramdown:
   input: GFM
+
+# Feed RSS del blog en /feed.xml (plugin soportado por GitHub Pages)
+plugins:
+  - jekyll-feed
 
 # Los artículos quedan en /blog/<titulo>/
 permalink: /blog/:title/
