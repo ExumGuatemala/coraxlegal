@@ -1,11 +1,11 @@
 ---
 layout: articulo
 title: ¿Cómo otorgar un mandato desde el extranjero para un trámite en Guatemala?
-description: Si vive fuera de Guatemala, puede autorizar a una persona de confianza para que realice trámites en su nombre. Le explicamos qué es un mandato, dónde se firma y qué pasos siguen en Guatemala.
+description: Si vive en Estados Unidos, puede autorizar a alguien de confianza para hacer trámites en Guatemala. Corax Legal viaja a su ciudad para autorizar su mandato.
 autor: grecia-ixchajchal
 ---
 
-Si usted vive en Estados Unidos, España o cualquier otro país y necesita vender una propiedad, cobrar una herencia o realizar un trámite en Guatemala, no siempre es necesario viajar. Puede otorgar un **mandato** para que una persona de su confianza actúe en su nombre.
+Si usted vive en Estados Unidos, España o cualquier otro país y necesita vender una propiedad, cobrar una herencia o realizar un trámite en Guatemala, no necesita viajar. Puede otorgar un **mandato** para que una persona de su confianza actúe en su nombre. Y si vive en Estados Unidos, nosotros vamos a su ciudad para hacerlo en persona.
 
 ## ¿Qué es un mandato?
 
@@ -20,21 +20,41 @@ El mandato puede ser **general**, para administrar sus bienes, o **especial**, p
 
 ## ¿Dónde se firma el mandato?
 
-Tiene dos opciones:
+Tiene tres opciones. La primera es la que recomendamos, porque le da atención en persona de principio a fin.
 
-### 1. En el consulado de Guatemala
+### 1. Con un notario de Corax Legal, en su ciudad
 
-Los cónsules de Guatemala pueden autorizar mandatos para que surtan efecto en el país. Es la opción más directa: el documento sale listo para usarse en Guatemala sin apostilla ni traducción.
+Desde hace varios años, **Corax Legal viaja cuatro veces al año a Estados Unidos** para autorizar mandatos en persona. Usualmente visitamos:
 
-Antes de ir, consulte en el consulado más cercano si necesita cita y qué requisitos piden.
+- Los Ángeles
+- Houston
+- Nueva York
+- Una cuarta ciudad que varía: Miami, Omaha, San Francisco o una de las anteriores.
 
-### 2. Ante un notario del país donde vive
+Un notario de nuestro equipo viaja, se reúne con usted y autoriza el mandato, dando aviso previo al Archivo General de Protocolos. Así:
+
+- **Conoce a su notario** y resuelve sus dudas cara a cara, sin intermediarios.
+- **El mandato queda redactado correctamente desde el inicio.** Tras años de experiencia, sabemos cómo redactarlo para que sea admitido por los registros, los bancos y las demás instituciones donde se va a usar.
+- **No necesita apostilla, traducción ni protocolización**, porque el mandato lo autoriza un notario guatemalteco.
+- **Nosotros nos encargamos de todo lo que sigue en Guatemala.**
+
+¿No puede esperar al próximo viaje? También atendemos **emergencias**: viajamos a donde se encuentre, cubriendo usted los viáticos del viaje.
+
+> Escríbanos por WhatsApp para conocer las fechas y ciudades del próximo viaje y reservar su cita.
+
+### 2. En el consulado de Guatemala
+
+Los cónsules de Guatemala también pueden autorizar mandatos que surten efecto en el país. Antes de ir, consulte en el consulado más cercano si necesita cita y qué requisitos piden.
+
+### 3. Ante un notario del país donde vive
 
 También puede firmarlo ante un notario o funcionario autorizado del país donde reside. En ese caso, para que el documento sea válido en Guatemala:
 
 1. **Apostilla:** si el país es parte del Convenio de La Haya (como Estados Unidos, España, México o Canadá), el documento debe apostillarse en ese país. Si no lo es, se legaliza por la vía consular.
 2. **Traducción jurada:** si está en otro idioma, se traduce al español en Guatemala.
 3. **Protocolización:** un notario guatemalteco incorpora el documento a su protocolo.
+
+En las opciones 2 y 3, le recomendamos que nos pida el texto del mandato antes de firmarlo. Un mandato mal redactado puede ser rechazado y obligarle a repetir todo el proceso desde el extranjero.
 
 ## ¿Qué pasa cuando el mandato llega a Guatemala?
 
@@ -56,6 +76,11 @@ Antes de usarse, el mandato debe **inscribirse en el Registro Electrónico de Po
 - Si el mandato es para un solo trámite, puede limitarlo a ese trámite.
 - Puede revocar el mandato cuando lo desee.
 
-## ¿Cómo le acompañamos?
+## ¿Por qué elegir Corax Legal?
 
-En Corax Legal redactamos el texto del mandato según el trámite que necesita, para que lo firme en el consulado o ante el notario de su país. Cuando el documento llega a Guatemala, nos encargamos de la protocolización, la inscripción en el Registro de Poderes y el seguimiento del trámite hasta su resolución.
+Sabemos que hacer un trámite en Guatemala desde el extranjero genera dudas y preocupación. Por eso nuestro objetivo es **conocerle e interactuar con usted en persona**, para que toda la experiencia sea completa y agradable:
+
+- Viajamos a su ciudad para atenderle cara a cara.
+- Redactamos el mandato a la medida de su trámite, para que sea admitido a la primera.
+- Nos encargamos de la inscripción en el Registro de Poderes y del seguimiento del trámite hasta su resolución.
+- Le mantenemos informado en cada paso, esté donde esté.
