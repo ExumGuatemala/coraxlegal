@@ -1,0 +1,22 @@
+---
+layout: base
+title: Blog
+titulo_seo: Blog de Corax Legal - Trámites legales y notariales en Guatemala
+description: Artículos de Corax Legal, bufete en Quetzaltenango, sobre trámites legales y notariales en Guatemala explicados de forma sencilla.
+---
+<a href="{{ '/' | relative_url }}" class="perfil-volver mb-4"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al inicio</a>
+
+<h1 class="blog-titulo">Blog</h1>
+<p class="blog-intro">Trámites legales y notariales en Guatemala, explicados de forma sencilla.</p>
+
+<div class="blog-lista">
+    {%- for post in site.posts %}
+    {%- assign autor = site.data.autores[post.autor] %}
+    <article class="blog-tarjeta">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="blog-tarjeta-meta">{% include fecha.html fecha=post.date %}{% if autor %} · {{ autor.nombre }}{% endif %}</p>
+        <p>{{ post.description }}</p>
+        <a href="{{ post.url | relative_url }}" class="blog-tarjeta-leer" aria-label="Leer: {{ post.title }}">Leer artículo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </article>
+    {%- endfor %}
+</div>

@@ -1,0 +1,207 @@
+/* Estilos del blog (lista y artículos). Se usa junto con perfil.css.
+   Mobile first: los estilos base son para teléfono; las pantallas
+   más grandes se ajustan con media queries min-width. */
+
+/* Lista de artículos */
+.blog-titulo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.blog-intro {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+.blog-lista {
+    display: grid;
+    gap: 1rem;
+}
+
+.blog-tarjeta {
+    border: 1px solid #eee;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+}
+
+.blog-tarjeta h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.blog-tarjeta h2 a {
+    color: var(--corax-dark);
+    text-decoration: none;
+}
+
+.blog-tarjeta h2 a:hover {
+    text-decoration: underline;
+}
+
+.blog-tarjeta-meta {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-tarjeta-leer {
+    color: var(--corax-accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Artículo: columna centrada de lectura cómoda */
+.articulo-columna {
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.articulo-titulo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 1rem;
+}
+
+.articulo-fecha {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.articulo-autor {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.articulo-autor img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.articulo-autor-nombre {
+    display: block;
+    font-weight: 600;
+    color: var(--corax-dark);
+}
+
+.articulo-autor-cargo {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--corax-accent);
+}
+
+.articulo-contenido {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.articulo-contenido h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.articulo-contenido h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 1.5rem;
+}
+
+.articulo-contenido a {
+    color: var(--corax-accent);
+}
+
+.articulo-contenido li {
+    margin-bottom: 0.4rem;
+}
+
+.articulo-contenido li::marker {
+    color: var(--corax-accent);
+}
+
+.articulo-contenido blockquote {
+    border-left: 3px solid var(--corax-accent);
+    background-color: #f8f1f0;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.articulo-contenido blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.articulo-contenido img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+/* Llamado a la acción al final del artículo */
+.articulo-cta {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: #f8f1f0;
+    text-align: center;
+}
+
+.articulo-cta-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-bottom: 0.25rem;
+}
+
+.btn-corax {
+    background-color: var(--corax-accent);
+    border-color: var(--corax-accent);
+    color: white;
+}
+
+.btn-corax:hover,
+.btn-corax:focus {
+    background-color: var(--corax-dark);
+    border-color: var(--corax-dark);
+    color: white;
+}
+
+.articulo-aviso {
+    margin-top: 1.5rem;
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .blog-titulo,
+    .articulo-titulo {
+        font-size: 2.25rem;
+    }
+
+    .blog-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .blog-lista {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

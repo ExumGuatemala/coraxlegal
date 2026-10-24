@@ -1,0 +1,35 @@
+---
+layout: base
+---
+{%- assign autor = site.data.autores[page.autor] -%}
+<div class="articulo-columna">
+<a href="{{ '/blog/' | relative_url }}" class="perfil-volver mb-4"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al blog</a>
+
+<article class="articulo">
+    <header class="articulo-header">
+        <h1 class="articulo-titulo">{{ page.title }}</h1>
+        <p class="articulo-fecha">{% include fecha.html fecha=page.date %}</p>
+        {%- if autor %}
+        <a href="{{ autor.perfil | relative_url }}" class="articulo-autor">
+            <img src="{{ autor.foto | relative_url }}" alt="{{ autor.nombre }}" width="56" height="56">
+            <span>
+                <span class="articulo-autor-nombre">{{ autor.nombre }}</span>
+                <span class="articulo-autor-cargo">{{ autor.cargo }}</span>
+            </span>
+        </a>
+        {%- endif %}
+    </header>
+
+    <div class="articulo-contenido">
+        {{ content }}
+    </div>
+
+    <aside class="articulo-cta" aria-label="Contacto">
+        <p class="articulo-cta-titulo">¿Necesita resolver este trámite?</p>
+        <p>Escríbanos y le indicamos los pasos para su caso.</p>
+        <a href="https://wa.me/50254126434" data-evento="clic_whatsapp" data-ubicacion="blog" target="_blank" rel="noopener" class="btn btn-corax"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+    </aside>
+
+    <p class="articulo-aviso">Este artículo es informativo y no sustituye la asesoría legal para su caso particular.</p>
+</article>
+</div>

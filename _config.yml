@@ -1,0 +1,20 @@
+# Configuración de Jekyll (GitHub Pages lo ejecuta automáticamente al publicar).
+# Solo el blog usa Jekyll: la landing y los perfiles no tienen front matter,
+# así que se copian tal cual.
+title: Corax Legal
+url: https://www.coraxlegal.com
+baseurl: ""
+lang: es
+timezone: America/Guatemala
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Los artículos quedan en /blog/<titulo>/
+permalink: /blog/:title/
+
+exclude:
+  - README.md
+  - docs
+  - team
