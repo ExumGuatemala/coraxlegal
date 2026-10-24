@@ -17,6 +17,12 @@ kramdown:
 plugins:
   - jekyll-feed
 
+# Páginas de servicio: un archivo por servicio en _servicios/, publicado en /servicios/<archivo>/
+collections:
+  servicios:
+    output: true
+    permalink: /servicios/:name/
+
 # Los artículos quedan en /blog/<titulo>/
 permalink: /blog/:title/
 

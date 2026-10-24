@@ -1,0 +1,114 @@
+/* Estilos de las páginas de servicio. Se usa junto con perfil.css y blog.css.
+   Mobile first: los estilos base son para teléfono; las pantallas
+   más grandes se ajustan con media queries min-width. */
+
+.servicio {
+    max-width: 880px;
+    margin-inline: auto;
+}
+
+.servicio-imagen {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+}
+
+.servicio-titulo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--corax-dark);
+    margin-top: 1.25rem;
+}
+
+.servicio-descripcion {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding-bottom: 1rem;
+}
+
+/* Tarjetas del equipo */
+.servicio-equipo {
+    display: grid;
+    gap: 1rem;
+}
+
+.servicio-integrante {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.servicio-integrante:hover {
+    border-color: var(--corax-accent);
+}
+
+.servicio-integrante img {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.servicio-integrante-nombre {
+    display: block;
+    font-weight: 600;
+    color: var(--corax-dark);
+}
+
+.servicio-integrante-cargo {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.servicio-integrante-ver {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--corax-accent);
+}
+
+/* Artículos relacionados */
+.servicio-articulos {
+    padding-left: 1.1rem;
+}
+
+.servicio-articulos li {
+    margin-bottom: 0.75rem;
+}
+
+.servicio-articulos li::marker {
+    color: var(--corax-accent);
+}
+
+.servicio-articulos a {
+    color: var(--corax-dark);
+    font-weight: 600;
+}
+
+.servicio-articulo-fecha {
+    display: block;
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+    .servicio-titulo {
+        font-size: 2.25rem;
+    }
+
+    .servicio-equipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,7 +1,7 @@
 ---
 layout: base
 ---
-{%- assign autor = site.data.autores[page.autor] -%}
+{%- assign autor = site.data.equipo[page.autor] -%}
 <div class="articulo-columna">
 <a href="{{ '/blog/' | relative_url }}" class="perfil-volver mb-4"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al blog</a>
 
@@ -23,6 +23,16 @@ layout: base
     <div class="articulo-contenido">
         {{ content }}
     </div>
+
+    {%- if page.servicios %}
+    <p class="articulo-servicios">
+        Servicio relacionado:
+        {%- for id in page.servicios %}
+        {%- assign servicio = site.servicios | where: "slug", id | first %}
+        <a href="{{ servicio.url | relative_url }}">{{ servicio.title }}</a>{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+    </p>
+    {%- endif %}
 
     <aside class="articulo-cta" aria-label="Contacto">
         <p class="articulo-cta-titulo">¿Necesita resolver este trámite?</p>

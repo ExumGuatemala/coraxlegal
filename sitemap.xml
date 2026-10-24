@@ -39,6 +39,15 @@ layout: null
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    {%- assign servicios = site.servicios | sort: "orden" %}
+    {%- for servicio in servicios %}
+    <url>
+        <loc>{{ servicio.url | absolute_url }}</loc>
+        <lastmod>{{ servicio.actualizado | date: "%Y-%m-%d" }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    {%- endfor %}
     <url>
         <loc>https://www.coraxlegal.com/blog/</loc>
         <lastmod>{{ site.posts.first.date | date: "%Y-%m-%d" }}</lastmod>

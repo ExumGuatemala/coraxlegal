@@ -1,0 +1,80 @@
+---
+layout: base
+---
+{%- comment -%}
+    Equipo del servicio: Grecia siempre primero, luego cada integrante
+    que atiende alguna de las soluciones, sin repetir.
+{%- endcomment -%}
+{%- assign ids = "grecia-ixchajchal" -%}
+{%- for solucion in page.soluciones -%}
+    {%- for integrante in solucion.equipo -%}
+        {%- assign lista = ids | split: "," -%}
+        {%- unless lista contains integrante -%}
+            {%- assign ids = ids | append: "," | append: integrante -%}
+        {%- endunless -%}
+    {%- endfor -%}
+{%- endfor -%}
+{%- assign equipo = ids | split: "," -%}
+{%- assign servicio = page.slug -%}
+{%- assign articulos = site.posts | where_exp: "post", "post.servicios contains servicio" -%}
+
+<div class="servicio">
+<a href="{{ '/' | relative_url }}#servicios" class="perfil-volver mb-4"><i class="fas fa-arrow-left" aria-hidden="true"></i> Volver a servicios</a>
+
+<article>
+    <header class="servicio-header">
+        <img src="{{ page.imagen | relative_url }}" alt="{{ page.title }}" class="servicio-imagen" width="{{ page.imagen_ancho }}" height="{{ page.imagen_alto }}" fetchpriority="high">
+        <h1 class="servicio-titulo">{{ page.title }}</h1>
+    </header>
+
+    <div class="servicio-descripcion">
+        {{ content }}
+    </div>
+
+    <section class="perfil-seccion" aria-labelledby="soluciones-title">
+        <h2 id="soluciones-title"><i class="fas fa-handshake" aria-hidden="true"></i>Soluciones</h2>
+        <ul class="perfil-ramas">
+            {%- for solucion in page.soluciones %}
+            <li>{{ solucion.nombre }}</li>
+            {%- endfor %}
+        </ul>
+    </section>
+
+    <section class="perfil-seccion" aria-labelledby="equipo-title">
+        <h2 id="equipo-title"><i class="fas fa-users" aria-hidden="true"></i>Equipo a cargo</h2>
+        <div class="servicio-equipo">
+            {%- for id in equipo %}
+            {%- assign integrante = site.data.equipo[id] %}
+            <a href="{{ integrante.perfil | relative_url }}" class="servicio-integrante">
+                <img src="{{ integrante.foto | relative_url }}" alt="{{ integrante.nombre }}" width="72" height="72" loading="lazy">
+                <span>
+                    <span class="servicio-integrante-nombre">{{ integrante.nombre }}</span>
+                    <span class="servicio-integrante-cargo">{{ integrante.cargo }}</span>
+                    <span class="servicio-integrante-ver">Ver perfil <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </span>
+            </a>
+            {%- endfor %}
+        </div>
+    </section>
+
+    {%- if articulos.size > 0 %}
+    <section class="perfil-seccion" aria-labelledby="blog-title">
+        <h2 id="blog-title"><i class="fas fa-newspaper" aria-hidden="true"></i>Artículos sobre este servicio</h2>
+        <ul class="servicio-articulos">
+            {%- for post in articulos %}
+            <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <span class="servicio-articulo-fecha">{% include fecha.html fecha=post.date %}</span>
+            </li>
+            {%- endfor %}
+        </ul>
+    </section>
+    {%- endif %}
+
+    <aside class="articulo-cta" aria-label="Contacto">
+        <p class="articulo-cta-titulo">¿Necesita asesoría en {{ page.title }}?</p>
+        <p>Escríbanos y le indicamos los pasos para su caso.</p>
+        <a href="https://wa.me/50254126434" data-evento="clic_whatsapp" data-ubicacion="servicio" target="_blank" rel="noopener" class="btn btn-corax"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+    </aside>
+</article>
+</div>

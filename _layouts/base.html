@@ -53,7 +53,7 @@
 
     <!-- Datos estructurados -->
     {%- if page.collection == 'posts' %}
-    {%- assign autor = site.data.autores[page.autor] %}
+    {%- assign autor = site.data.equipo[page.autor] %}
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -81,6 +81,25 @@
                 "@type": "ImageObject",
                 "url": "https://www.coraxlegal.com/src/images/logo_transparente.png"
             }
+        }
+    }
+    </script>
+    {%- elsif page.collection == 'servicios' %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": {{ page.title | jsonify }},
+        "serviceType": {{ page.title | jsonify }},
+        "description": {{ page.description | jsonify }},
+        "url": "{{ page.url | absolute_url }}",
+        "image": "{{ imagen_redes }}",
+        "areaServed": "Guatemala",
+        "provider": {
+            "@type": "LegalService",
+            "@id": "https://www.coraxlegal.com/#bufete",
+            "name": "Corax Legal",
+            "url": "https://www.coraxlegal.com/"
         }
     }
     </script>
@@ -113,6 +132,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ '/src/css/perfil.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/src/css/blog.css' | relative_url }}">
+    {%- if page.collection == 'servicios' %}
+    <link rel="stylesheet" href="{{ '/src/css/servicio.css' | relative_url }}">
+    {%- endif %}
 </head>
 <body>
     <!-- Navbar -->
@@ -126,9 +148,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#inicio">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link{% if page.collection == 'servicios' %} active" aria-current="page{% endif %}" href="{{ '/' | relative_url }}#servicios">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#equipo">Equipo</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link{% unless page.collection == 'servicios' %} active" aria-current="page{% endunless %}" href="{{ '/blog/' | relative_url }}">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}#info-contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -144,7 +166,7 @@
     <footer class="bg-custom-dark text-white py-4">
         <div class="container text-center">
             <div class="mb-2">
-                <a href="https://instagram.com/coraxlegal" data-evento="clic_instagram" data-ubicacion="blog" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
+                <a href="https://instagram.com/coraxlegal" data-evento="clic_instagram" data-ubicacion="{% if page.collection == 'servicios' %}servicio{% else %}blog{% endif %}" target="_blank" rel="noopener" class="text-white me-3" aria-label="Instagram de Corax Legal">
                     <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
                     <span class="visually-hidden">Instagram</span>
                 </a>

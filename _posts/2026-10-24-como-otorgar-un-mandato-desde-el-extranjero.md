@@ -3,6 +3,7 @@ layout: articulo
 title: ¿Cómo otorgar un mandato desde el extranjero para un trámite en Guatemala?
 description: Si vive en Estados Unidos, puede autorizar a alguien de confianza para hacer trámites en Guatemala. Corax Legal viaja a su ciudad para autorizar su mandato.
 autor: grecia-ixchajchal
+servicios: [mandatos-desde-el-extranjero]
 ---
 
 Si usted vive en Estados Unidos, España o cualquier otro país y necesita vender una propiedad, cobrar una herencia o realizar un trámite en Guatemala, no necesita viajar. Puede otorgar un **mandato** para que una persona de su confianza actúe en su nombre. Y si vive en Estados Unidos, nosotros vamos a su ciudad para hacerlo en persona.

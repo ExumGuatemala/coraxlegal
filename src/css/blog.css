@@ -153,6 +153,19 @@
     border-radius: 0.5rem;
 }
 
+/* Enlace al servicio relacionado */
+.articulo-servicios {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-weight: 600;
+    color: var(--corax-dark);
+}
+
+.articulo-servicios a {
+    color: var(--corax-accent);
+}
+
 /* Llamado a la acción al final del artículo */
 .articulo-cta {
     margin-top: 2.5rem;

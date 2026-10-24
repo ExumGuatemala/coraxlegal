@@ -11,7 +11,7 @@ description: Artículos de Corax Legal, bufete en Quetzaltenango, sobre trámite
 
 <div class="blog-lista">
     {%- for post in site.posts %}
-    {%- assign autor = site.data.autores[post.autor] %}
+    {%- assign autor = site.data.equipo[post.autor] %}
     <article class="blog-tarjeta">
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <p class="blog-tarjeta-meta">{% include fecha.html fecha=post.date %}{% if autor %} · {{ autor.nombre }}{% endif %}</p>
