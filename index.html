@@ -78,7 +78,7 @@
                     "Friday"
                 ],
                 "opens": "08:00",
-                "closes": "15:30"
+                "closes": "15:00"
             }
         ],
         "areaServed": {
@@ -132,6 +132,71 @@
                 "name": "María Alejandra Gálvez Tiguilá",
                 "jobTitle": "Asistente Legal",
                 "url": "https://www.coraxlegal.com/equipo/alejandra-galvez/"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Cuánto cuesta la primera consulta?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La primera consulta tiene un costo de Q300. En ella revisamos su caso y le orientamos sobre los pasos a seguir."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Puedo tener la consulta por videollamada?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Le atendemos en persona en nuestra oficina en Quetzaltenango o por videollamada, como le resulte más cómodo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Atienden a guatemaltecos que viven en el extranjero?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Atendemos a guatemaltecos que viven fuera del país en mandatos y en cualquier otro tipo de caso."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cuál es el horario de atención?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Atendemos de lunes a viernes, de 8:00 a. m. a 3:00 p. m."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué formas de pago aceptan?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Aceptamos pagos en efectivo y por transferencia bancaria."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cuánto tiempo toma un trámite?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del trámite. Tiempos aproximados de los más comunes: legalización de firmas, 45 minutos; auténtica de documentos, 45 minutos; traspaso de vehículo, 90 minutos; escrituras públicas, 2 días hábiles desde la consulta hasta la autorización de la escritura. Para otros trámites, consúltenos y le daremos un tiempo estimado."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cómo agendo una cita?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Escríbanos por WhatsApp o llámenos al +502 5412 6434."
+                }
             }
         ]
     }
@@ -292,10 +357,8 @@
                         <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog/index.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#info-contacto">Contacto</a></li>
-                        <!-- Oculto hasta tener testimonios reales -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li> -->
-                        
                     </ul>
                 </div>
             </div>
@@ -513,19 +576,35 @@
             </div>
         </section>
 
-        <!-- Testimonios: oculto hasta tener testimonios reales (Google penaliza reseñas falsas). Para activarlo, quitar este comentario y repetir la tarjeta por cada testimonio.
+        <!-- Testimonios: solo reseñas reales de clientes, con su permiso -->
         <section id="testimonios" class="py-5" aria-labelledby="testimonios-title">
             <div class="container">
                 <h2 id="testimonios-title" class="text-center mb-5">Testimonios</h2>
                 <div class="row">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4">
                         <article class="card h-100">
                             <div class="card-body">
-                                <i class="fas fa-quote-left fa-2x text-muted mb-3"></i>
-                                <p class="card-text">Texto del testimonio</p>
+                                <i class="fas fa-quote-left fa-2x text-muted mb-3" aria-hidden="true"></i>
+                                <blockquote class="mb-0">
+                                    <p class="card-text">Quiero expresar mi agradecimiento y recomendar a Corax Legal, que me brindó asesoría y acompañamiento legal en un proceso penal relacionado con la compra de una propiedad. Recibí atención profesional, compromiso y orientación jurídica; actuaron de manera rápida y eficaz, y la situación se solventó en poco tiempo. Cuando se trata de asuntos legales, contar con profesionales comprometidos y con amplio conocimiento marca la diferencia.</p>
+                                </blockquote>
                                 <footer class="mt-3">
-                                    <strong class="d-block">Nombre del cliente</strong>
-                                    <small class="text-muted">Ocupación</small>
+                                    <strong class="d-block">Pedro T.</strong>
+                                    <small class="text-muted">Totonicapán</small>
+                                </footer>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <article class="card h-100">
+                            <div class="card-body">
+                                <i class="fas fa-quote-left fa-2x text-muted mb-3" aria-hidden="true"></i>
+                                <blockquote class="mb-0">
+                                    <p class="card-text">El servicio fue excelente: nos ayudó a resolver y conciliar todo de la mejor manera, resolvió todas nuestras dudas y nos asesoró para tomar la mejor decisión. Siempre estuvo en comunicación constante y eso nos dio tranquilidad. Quedamos muy satisfechos con su apoyo y le agradecemos el seguimiento.</p>
+                                </blockquote>
+                                <footer class="mt-3">
+                                    <strong class="d-block">Yulissa L.</strong>
+                                    <small class="text-muted">Quetzaltenango</small>
                                 </footer>
                             </div>
                         </article>
@@ -533,7 +612,92 @@
                 </div>
             </div>
         </section>
-        -->
+
+        <!-- Preguntas frecuentes: si se cambia una respuesta, cambiarla también en el JSON-LD FAQPage del head -->
+        <section id="preguntas-frecuentes" class="py-5" aria-labelledby="faq-title">
+            <div class="container">
+                <h2 id="faq-title" class="text-center mb-5">Preguntas frecuentes</h2>
+                <div class="accordion mx-auto" id="faq-lista" style="max-width: 800px;">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-consulta" aria-expanded="false" aria-controls="faq-consulta">¿Cuánto cuesta la primera consulta?</button>
+                        </h3>
+                        <div id="faq-consulta" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">La primera consulta tiene un costo de Q300. En ella revisamos su caso y le orientamos sobre los pasos a seguir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-videollamada" aria-expanded="false" aria-controls="faq-videollamada">¿Puedo tener la consulta por videollamada?</button>
+                        </h3>
+                        <div id="faq-videollamada" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">Sí. Le atendemos en persona en nuestra oficina en Quetzaltenango o por videollamada, como le resulte más cómodo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-extranjero" aria-expanded="false" aria-controls="faq-extranjero">¿Atienden a guatemaltecos que viven en el extranjero?</button>
+                        </h3>
+                        <div id="faq-extranjero" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">Sí. Atendemos a guatemaltecos que viven fuera del país en mandatos y en cualquier otro tipo de caso. Conozca más sobre los <a href="servicios/mandatos-desde-el-extranjero/">mandatos desde el extranjero</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-horario" aria-expanded="false" aria-controls="faq-horario">¿Cuál es el horario de atención?</button>
+                        </h3>
+                        <div id="faq-horario" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">Atendemos de lunes a viernes, de 8:00 a. m. a 3:00 p. m.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-pago" aria-expanded="false" aria-controls="faq-pago">¿Qué formas de pago aceptan?</button>
+                        </h3>
+                        <div id="faq-pago" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">Aceptamos pagos en efectivo y por transferencia bancaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-tiempos" aria-expanded="false" aria-controls="faq-tiempos">¿Cuánto tiempo toma un trámite?</button>
+                        </h3>
+                        <div id="faq-tiempos" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p>Depende del trámite. Estos son tiempos aproximados de los más comunes:</p>
+                                    <ul>
+                                        <li>Legalización de firmas: 45 minutos.</li>
+                                        <li>Auténtica de documentos: 45 minutos.</li>
+                                        <li>Traspaso de vehículo: 90 minutos.</li>
+                                        <li>Escrituras públicas: 2 días hábiles, desde la consulta hasta la autorización de la escritura.</li>
+                                    </ul>
+                                    <p class="mb-0">Para otros trámites, consúltenos y le daremos un tiempo estimado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-cita" aria-expanded="false" aria-controls="faq-cita">¿Cómo agendo una cita?</button>
+                        </h3>
+                        <div id="faq-cita" class="accordion-collapse collapse" data-bs-parent="#faq-lista">
+                            <div class="accordion-body">
+                                <p class="mb-0">Escríbanos por <a href="https://wa.me/50254126434" data-evento="clic_whatsapp" data-ubicacion="faq" target="_blank" rel="noopener">WhatsApp</a> o llámenos al <a href="tel:+50254126434" data-evento="clic_llamar" data-ubicacion="faq">+502 5412 6434</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Información de Contacto -->
         <section id="info-contacto" class="py-5" aria-labelledby="contacto-title">
@@ -563,7 +727,7 @@
                             </div>
                         </address>
                         <h3 class="h5 mt-4">Horario de atención</h3>
-                        <p class="mb-0">Lunes a Viernes: 08:00 AM - 03:30 PM</p>
+                        <p class="mb-0">Lunes a Viernes: 08:00 AM - 03:00 PM</p>
                     </div>
                     <div class="col-lg-7">
                         <!-- PENDIENTE: cuando se verifique el Google Business Profile, cambiar el src por el código de "Compartir > Insertar un mapa" para que el pin muestre el nombre del bufete -->
